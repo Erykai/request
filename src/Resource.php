@@ -12,13 +12,19 @@ class Resource
      */
     private object $data;
     /**
-     * @var string|null
-     */
-    private ?string $error = null;
-    /**
      * @var object|null
      */
     private ?object $query = null;
+    /**
+     * @var object|null
+     */
+    private ?object $argument = null;
+
+    /**
+     * @var string|null
+     */
+    private ?string $error = null;
+
 
     /**
      * checks if there are requests and converts it to an object
@@ -27,6 +33,7 @@ class Resource
     {
         $this->setData();
         $this->setQuery($data);
+        $this->setArgument($data);
     }
 
     /**
@@ -72,6 +79,29 @@ class Resource
         $this->query = null;
         return false;
     }
+
+    /**
+     * @return object|null
+     */
+    public function getArgument(): ?object
+    {
+        return $this->argument;
+    }
+
+    /**
+     * @param array|null $data
+     * @return bool
+     */
+    public function setArgument(?array $data): bool
+    {
+        if (!empty($data[0])) {
+            $this->argument = (object)filter_var_array($data[0], FILTER_DEFAULT);
+            return true;
+        }
+        $this->argument = null;
+        return false;
+    }
+
 
     /**
      * @return string|null

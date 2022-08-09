@@ -22,6 +22,13 @@ class Request extends Resource
     {
         return $this->getQuery();
     }
+    /**
+     * @return object|null
+     */
+    public function argument(): ?object
+    {
+        return $this->getArgument();
+    }
 
     /**
      * @return string|null
