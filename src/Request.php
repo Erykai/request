@@ -16,17 +16,17 @@ class Request extends Resource
     }
 
     /**
-     * @return object
+     * @return object|null
      */
-    public function query(): object
+    public function query(): ?object
     {
         return $this->getQuery();
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function error(): string
+    public function error(): ?string
     {
         return $this->getError();
     }
