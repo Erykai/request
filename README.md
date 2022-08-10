@@ -7,7 +7,7 @@ Receives INPUT_POST requests, php://input and query converts and returns in obje
 Composer:
 
 ```bash
-"erykai/request": "1.1.*"
+"erykai/request": "1.2.*"
 ```
 
 Terminal
@@ -23,14 +23,9 @@ use Erykai\Request\Request;
 
 require "vendor/autoload.php";
 //$data = $data['query'] example ?name=tal&order=ASC or NULL
-$request = new Request($data);
-
-if($request->error()){
-    echo $request->error();
-    return false;
-}
-
-print_r($request->reponse());
+//$request = new Request($data);
+$request = new Request();
+print_r($request->response());
 ```
 
 ## Contribution

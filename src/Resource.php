@@ -21,10 +21,9 @@ class Resource
     private ?object $argument = null;
 
     /**
-     * @var string|null
+     * @var object
      */
-    private ?string $error = null;
-
+    private object $response;
 
     /**
      * checks if there are requests and converts it to an object
@@ -34,6 +33,12 @@ class Resource
         $this->setData();
         $this->setQuery($data);
         $this->setArgument($data);
+        $request = (object) [
+            'request' => $this->getData(),
+            'query' => $this->getQuery(),
+            'argument' => $this->getArgument()
+        ];
+        $this->setResponse(200, "success","return data", $request);
     }
 
     /**
@@ -54,7 +59,7 @@ class Resource
             try {
                 $this->data = json_decode(file_get_contents('php://input'), false, 512, JSON_THROW_ON_ERROR);
             } catch (\JsonException $e) {
-                $this->setError("json php://input {$e->getMessage()} - {$e->getFile()} - {$e->getLine()}");
+                $this->setResponse(400,'error', "json php://input {$e->getMessage()} - {$e->getFile()} - {$e->getLine()}");
             }
         }
     }
@@ -100,20 +105,29 @@ class Resource
         $this->argument = null;
     }
 
-
     /**
-     * @return string|null
+     * @return object
      */
-    protected function getError(): ?string
+    protected function getResponse(): object
     {
-        return $this->error;
+        return $this->response;
     }
 
     /**
-     * @param string|null $error
+     * @param int $code
+     * @param string $type
+     * @param string $message
+     * @param object|null $data
+     * @param string|null $dynamic
      */
-    protected function setError(?string $error): void
+    protected function setResponse(int $code, string $type, string $message, ?object $data = null, ?string $dynamic = null): void
     {
-        $this->error = $error;
+        $this->response = (object)[
+            "code" => $code,
+            "type" => $type,
+            "message" => $message,
+            "data" => $data,
+            "dynamic" => $dynamic
+        ];
     }
 }

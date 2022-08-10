@@ -10,19 +10,8 @@ class Request extends Resource
     /**
      * @return object
      */
-    public function reponse(): object
+    public function response(): object
     {
-        return (object) [
-            'data' => $this->getData(),
-            'query' => $this->getQuery(),
-            'argument' => $this->getArgument()
-        ];
-    }
-    /**
-     * @return string|null
-     */
-    public function error(): ?string
-    {
-        return $this->getError();
+        return $this->getResponse();
     }
 }
