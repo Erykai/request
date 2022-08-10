@@ -7,7 +7,7 @@ Receives INPUT_POST requests, php://input and query converts and returns in obje
 Composer:
 
 ```bash
-"erykai/request": "1.0.*"
+"erykai/request": "1.1.*"
 ```
 
 Terminal
@@ -30,8 +30,7 @@ if($request->error()){
     return false;
 }
 
-print_r($request->data());
-print_r($request->query());
+print_r($request->reponse());
 ```
 
 ## Contribution
