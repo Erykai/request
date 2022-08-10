@@ -68,38 +68,36 @@ class Resource
 
     /**
      * @param array|null $data
-     * @return bool
+     * @return void
      */
-    protected function setQuery(?array $data): bool
+    private function setQuery(?array $data): void
     {
         if (!empty($data['query'])) {
             $this->query = (object)filter_var_array($data['query'], FILTER_DEFAULT);
-            return true;
+            return;
         }
         $this->query = null;
-        return false;
     }
 
     /**
      * @return object|null
      */
-    public function getArgument(): ?object
+    protected function getArgument(): ?object
     {
         return $this->argument;
     }
 
     /**
      * @param array|null $data
-     * @return bool
+     * @return void
      */
-    public function setArgument(?array $data): bool
+    private function setArgument(?array $data): void
     {
         if (!empty($data[0])) {
             $this->argument = (object)filter_var_array($data[0], FILTER_DEFAULT);
-            return true;
+            return;
         }
         $this->argument = null;
-        return false;
     }
 
 
