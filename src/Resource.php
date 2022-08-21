@@ -98,8 +98,8 @@ class Resource
      */
     private function setArgument(?array $data): void
     {
-        if (!empty($data[0])) {
-            $this->argument = (object)filter_var_array($data[0], FILTER_DEFAULT);
+        if (!empty($data['argument'])) {
+            $this->argument = (object)filter_var_array($data['argument'], FILTER_DEFAULT);
             return;
         }
         $this->argument = null;
