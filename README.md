@@ -1,4 +1,12 @@
 # Request
+[![Maintainer](http://img.shields.io/badge/maintainer-@alexdeovidal-blue.svg?style=flat-square)](https://instagram.com/alexdeovidal)
+[![Source Code](http://img.shields.io/badge/source-erykai/request-blue.svg?style=flat-square)](https://github.com/erykai/request)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/erykai/request.svg?style=flat-square)](https://packagist.org/packages/erykai/request)
+[![Latest Version](https://img.shields.io/github/release/erykai/request.svg?style=flat-square)](https://github.com/erykai/request/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Quality Score](https://img.shields.io/scrutinizer/g/erykai/request.svg?style=flat-square)](https://scrutinizer-ci.com/g/erykai/request)
+[![Total Downloads](https://img.shields.io/packagist/dt/erykai/request.svg?style=flat-square)](https://packagist.org/packages/erykai/request)
+
 Receives INPUT_POST requests, php://input and query converts and returns in object
 
 

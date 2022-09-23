@@ -5,7 +5,7 @@ namespace Erykai\Request;
 /**
  * Resource Request
  */
-class Resource
+abstract class Resource
 {
     /**
      * @var object
