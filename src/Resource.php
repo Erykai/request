@@ -122,6 +122,7 @@ abstract class Resource
      */
     protected function setResponse(int $code, string $type, string $message, ?object $data = null, ?string $dynamic = null): void
     {
+        http_response_code($code);
         $this->response = (object)[
             "code" => $code,
             "type" => $type,
